@@ -21,7 +21,7 @@ export default function ContactSection() {
       ref={ref}
       style={{
         position: "relative",
-        padding: "100px 32px 80px",
+        padding: "clamp(60px, 10vw, 100px) clamp(16px, 4vw, 32px) clamp(50px, 8vw, 80px)",
         overflow: "hidden",
       }}
     >
@@ -67,7 +67,7 @@ export default function ContactSection() {
           I&apos;d love to hear from you ♡
         </p>
       </motion.div>
-
+ 
       {/* Contact Card */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -106,12 +106,12 @@ export default function ContactSection() {
             height: "36px",
           }}
         />
-
+ 
         {/* Card body */}
         <div
           className="paper-card"
           style={{
-            padding: "48px 44px",
+            padding: "clamp(24px, 5vw, 48px) clamp(16px, 5vw, 44px)",
             transform: "rotate(-0.5deg)",
           }}
         >
@@ -128,12 +128,13 @@ export default function ContactSection() {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "22px",
-                  padding: "18px 20px",
+                  gap: "clamp(12px, 3vw, 22px)",
+                  padding: "clamp(10px, 2.5vw, 18px) clamp(10px, 3vw, 20px)",
                   borderRadius: "16px",
                   textDecoration: "none",
                   color: "inherit",
                   transition: "background-color 0.2s ease, transform 0.2s ease",
+                  width: "100%",
                 }}
                 whileHover={{
                   backgroundColor: "rgba(0, 0, 0, 0.03)",
@@ -143,27 +144,27 @@ export default function ContactSection() {
                 {/* Icon */}
                 <div
                   style={{
-                    width: "64px",
-                    height: "64px",
-                    minWidth: "64px",
+                    width: "clamp(48px, 12vw, 64px)",
+                    height: "clamp(48px, 12vw, 64px)",
+                    minWidth: "clamp(48px, 12vw, 64px)",
                     borderRadius: "16px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "30px",
+                    fontSize: "clamp(22px, 5vw, 30px)",
                     background: `${contact.color}15`,
                     transition: "transform 0.2s ease",
                   }}
                 >
                   {contact.icon}
                 </div>
-
+ 
                 {/* Text */}
-                <div style={{ minWidth: 0 }}>
+                <div style={{ flex: 1, minWidth: 0, wordBreak: "break-word" }}>
                   <p
                     style={{
                       fontFamily: "var(--font-sticker)",
-                      fontSize: "14px",
+                      fontSize: "clamp(11px, 3vw, 14px)",
                       fontWeight: 700,
                       color: "#aaa",
                       textTransform: "uppercase",
@@ -177,12 +178,12 @@ export default function ContactSection() {
                   <p
                     style={{
                       fontFamily: "var(--font-body)",
-                      fontSize: "20px",
+                      fontSize: "clamp(14px, 4.5vw, 20px)",
                       fontWeight: 500,
                       color: "#555",
                       margin: "4px 0 0",
                       lineHeight: 1.4,
-                      whiteSpace: "nowrap",
+                      wordBreak: "break-all",
                     }}
                   >
                     {contact.value}
