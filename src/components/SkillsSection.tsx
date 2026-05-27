@@ -4,14 +4,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 const skills = [
-  { name: "React", icon: "💻", level: 85, color: "#1595F3" },
-  { name: "JavaScript", icon: "⚡", level: 80, color: "#FFE066" },
-  { name: "HTML", icon: "🌐", level: 90, color: "#B9E769" },
-  { name: "CSS", icon: "🎨", level: 85, color: "#FF8A65" },
-  { name: "Supabase", icon: "📁", level: 75, color: "#C3B1E1" },
-  { name: "Tailwind CSS", icon: "🌊", level: 85, color: "#FFB6C1" },
-  { name: "UI/UX", icon: "✏️", level: 80, color: "#FF8A65" },
-  { name: "GitHub", icon: "🐙", level: 85, color: "#B9E769" },
+  { name: "Full-Stack Dev (React / Native)", icon: "💻", level: 85, color: "#1595F3" },
+  { name: "Backend Integration (Supabase)", icon: "📁", level: 80, color: "#C3B1E1" },
+  { name: "Web Dev (HTML5 / CSS3 / JS)", icon: "⚡", level: 90, color: "#FFE066" },
+  { name: "Programming (Java / Python)", icon: "🐍", level: 80, color: "#B9E769" },
+  { name: "Multimedia (Adobe Animate / PS / AI)", icon: "🎨", level: 85, color: "#FF8A65" },
+  { name: "IT Support & Troubleshooting", icon: "🛠️", level: 85, color: "#FFB6C1" },
+  { name: "System Analysis & Design", icon: "📊", level: 80, color: "#1595F3" },
+  { name: "UI/UX & Interactive Design", icon: "✏️", level: 85, color: "#B9E769" },
 ];
 
 export default function SkillsSection() {

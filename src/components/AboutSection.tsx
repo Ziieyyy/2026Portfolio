@@ -57,16 +57,16 @@ export default function AboutSection() {
             className="text-sm mb-3"
             style={{ fontFamily: "var(--font-sticker)", color: "#555" }}
           >
-            Web Developer
+            Web Developer & IT Specialist
           </p>
           <div className="space-y-2 text-xs" style={{ fontFamily: "var(--font-body)" }}>
             <div className="flex items-center gap-2">
               <span>📍</span>
-              <span className="text-gray-600">Malaysia</span>
+              <span className="text-gray-600">Selangor, Malaysia</span>
             </div>
             <div className="flex items-center gap-2">
               <span>🎓</span>
-              <span className="text-gray-600">Diploma in Information Technology</span>
+              <span className="text-gray-600">Diploma in IT (Digital Technology)</span>
             </div>
             <div className="flex items-center gap-2">
               <span>✉️</span>
@@ -93,13 +93,19 @@ export default function AboutSection() {
               className="text-sm leading-relaxed text-gray-700 mb-4"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Hello! I&apos;m <span className="font-bold text-[#1595F3]">Khairul Azizi</span>, a Diploma in Information Technology student with a genuine passion for web development. My journey in tech began with curiosity about how digital products are built, and it has evolved into a dedicated pursuit of creating clean, functional, and user-friendly applications.
+              Hello! I&apos;m <span className="font-bold text-[#1595F3]">Khairul Azizi</span>, an IT and Digital Technology graduate from <span className="font-bold">Politeknik Ungku Omar</span> with a passion for technology, digital solutions, and creative design. I enjoy building user-friendly web and mobile applications, solving technical problems, and exploring innovative ideas in system development and UI/UX design.
+            </p>
+            <p
+              className="text-sm leading-relaxed text-gray-700 mb-4"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              Throughout my academic journey, I consistently achieved <span className="font-bold">Dean’s List</span> recognition and developed strong skills in programming, web development, system analysis, and digital technologies. I also completed an internship at <span className="font-bold">Wallmaster Malaysia</span> under the IT & Administration department, where I gained hands-on experience in IT support, troubleshooting, website maintenance, software setup, and multimedia-related tasks.
             </p>
             <p
               className="text-sm leading-relaxed text-gray-700"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              While I&apos;m still early in my development journey, I&apos;ve been actively learning React and Supabase to build modern web applications. My background in customer-facing roles, particularly in coffee retail, has shaped my understanding of user needs and the importance of intuitive design.
+              I am highly adaptable, eager to learn, and motivated to contribute to meaningful digital projects that drive impact.
             </p>
           </div>
 
@@ -115,11 +121,11 @@ export default function AboutSection() {
                 className="text-sm font-bold mb-1 flex items-center gap-1.5"
                 style={{ fontFamily: "var(--font-section)", color: "#1595F3" }}
               >
-                🎓 Education
+                🎓 Academic Honors
               </h4>
-              <p className="text-[11px] text-gray-500 font-bold mb-1" style={{ fontFamily: "var(--font-sticker)" }}>IT Diploma Student</p>
+              <p className="text-[11px] text-gray-500 font-bold mb-1" style={{ fontFamily: "var(--font-sticker)" }}>Politeknik Ungku Omar</p>
               <p className="text-[11px] text-gray-600 leading-normal" style={{ fontFamily: "var(--font-body)" }}>
-                Strong foundation in programming, algorithms, database management, and system design.
+                Achieved 4.00 GPAs & Semesters 1–5 Dean&apos;s List. Competed in Cybertech Arena Web Design Challenge (2nd Place).
               </p>
             </div>
 
@@ -133,11 +139,11 @@ export default function AboutSection() {
                 className="text-sm font-bold mb-1 flex items-center gap-1.5"
                 style={{ fontFamily: "var(--font-section)", color: "#B9E769" }}
               >
-                💻 Development
+                💻 System Engineering
               </h4>
-              <p className="text-[11px] text-gray-500 font-bold mb-1" style={{ fontFamily: "var(--font-sticker)" }}>React & Supabase</p>
+              <p className="text-[11px] text-gray-500 font-bold mb-1" style={{ fontFamily: "var(--font-sticker)" }}>Full-Stack & React Native</p>
               <p className="text-[11px] text-gray-600 leading-normal" style={{ fontFamily: "var(--font-body)" }}>
-                Experience building responsive frontends and working with backend services, real-time sync, and database tables.
+                Built BreedLink matchmaking mobile app using React Native & Supabase, winning 1st Place (Best Project) at ICE JTMK.
               </p>
             </div>
 
@@ -151,11 +157,11 @@ export default function AboutSection() {
                 className="text-sm font-bold mb-1 flex items-center gap-1.5"
                 style={{ fontFamily: "var(--font-section)", color: "#FF8A65" }}
               >
-                🎨 UI/UX Mindset
+                🎨 Creative & Multimedia
               </h4>
-              <p className="text-[11px] text-gray-500 font-bold mb-1" style={{ fontFamily: "var(--font-sticker)" }}>User-Centric Design</p>
+              <p className="text-[11px] text-gray-500 font-bold mb-1" style={{ fontFamily: "var(--font-sticker)" }}>Digital Storytelling Winner</p>
               <p className="text-[11px] text-gray-600 leading-normal" style={{ fontFamily: "var(--font-body)" }}>
-                Focusing on creating clean, intuitive, and modern user interfaces that put the user experience first.
+                Achieved 3rd Place in Selangor State DST Competition (2022). Experienced in Adobe Illustrator, Animate & Canva.
               </p>
             </div>
 
@@ -169,22 +175,22 @@ export default function AboutSection() {
                 className="text-sm font-bold mb-1 flex items-center gap-1.5"
                 style={{ fontFamily: "var(--font-section)", color: "#C3B1E1" }}
               >
-                ☕ Background
+                💼 Professional Experience
               </h4>
-              <p className="text-[11px] text-gray-500 font-bold mb-1" style={{ fontFamily: "var(--font-sticker)" }}>Coffee Retail Experience</p>
+              <p className="text-[11px] text-gray-500 font-bold mb-1" style={{ fontFamily: "var(--font-sticker)" }}>IT Support & Service</p>
               <p className="text-[11px] text-gray-600 leading-normal" style={{ fontFamily: "var(--font-body)" }}>
-                Customer service experience that brings strong interpersonal, listening, and problem-solving skills to development.
+                IT Support Intern at Wallmaster, troubleshooting web platforms & user software. Part-time service at Richeese Factory.
               </p>
             </div>
           </div>
 
           {/* Interests */}
           <div className="flex flex-wrap gap-2 pt-2">
-            <span className="sticker-badge sticker-blue text-[10px]">🌐 Web Dev</span>
-            <span className="sticker-badge sticker-green text-[10px]">⚡ React</span>
+            <span className="sticker-badge sticker-blue text-[10px]">🌐 Full-Stack Dev</span>
+            <span className="sticker-badge sticker-green text-[10px]">⚡ React Native</span>
             <span className="sticker-badge sticker-orange text-[10px]">📁 Supabase</span>
-            <span className="sticker-badge sticker-lavender text-[10px]">☕ Coffee</span>
-            <span className="sticker-badge sticker-pink text-[10px]">💻 Coding</span>
+            <span className="sticker-badge sticker-lavender text-[10px]">🛠️ IT Support</span>
+            <span className="sticker-badge sticker-pink text-[10px]">🎬 Multimedia</span>
           </div>
         </motion.div>
       </div>

@@ -66,75 +66,75 @@ export default function HeroSection() {
       <div className="relative z-10 flex flex-col items-center justify-center px-6 pt-10 pb-24 md:pt-16 md:pb-32 text-center">
         {/* Floating decorative stickers */}
         <motion.div
-          className="absolute top-20 left-8 md:left-16 text-4xl md:text-5xl"
+          className="absolute top-20 left-2 md:left-16 text-3xl md:text-5xl select-none pointer-events-none"
           animate={{ y: [0, -12, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         >
           🎨
         </motion.div>
         <motion.div
-          className="absolute top-32 right-8 md:right-20 text-3xl md:text-4xl"
+          className="absolute top-32 right-2 md:right-20 text-2xl md:text-4xl select-none pointer-events-none"
           animate={{ y: [0, -10, 0], rotate: [0, -8, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         >
           ✏️
         </motion.div>
         <motion.div
-          className="absolute bottom-32 left-12 md:left-24 text-3xl md:text-4xl"
+          className="absolute bottom-32 left-2 md:left-24 text-2xl md:text-4xl select-none pointer-events-none"
           animate={{ y: [0, -15, 0], rotate: [-5, 5, -5] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         >
           📐
         </motion.div>
         <motion.div
-          className="absolute bottom-24 right-12 md:right-28 text-3xl md:text-4xl"
+          className="absolute bottom-24 right-2 md:right-28 text-2xl md:text-4xl select-none pointer-events-none"
           animate={{ y: [0, -8, 0], rotate: [3, -3, 3] }}
           transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
         >
           📷
         </motion.div>
         <motion.div
-          className="absolute top-48 left-1/4 text-2xl md:text-3xl hidden md:block"
+          className="absolute top-48 left-1/4 text-2xl md:text-3xl hidden md:block select-none pointer-events-none"
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
         >
           🎬
         </motion.div>
         <motion.div
-          className="absolute top-36 right-1/4 text-2xl md:text-3xl hidden md:block"
+          className="absolute top-36 right-1/4 text-2xl md:text-3xl hidden md:block select-none pointer-events-none"
           animate={{ y: [0, -12, 0], rotate: [0, 10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         >
           📻
         </motion.div>
-
+ 
         {/* Green sticker label */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: -3 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="sticker-badge sticker-green mb-4 text-base"
+          className="sticker-badge sticker-green mb-4 text-sm sm:text-base select-none"
           style={{ fontFamily: "var(--font-sticker)" }}
         >
           ✨ Web Developer
         </motion.div>
-
+ 
         {/* Main Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-4"
+          className="mb-4 w-full px-4 flex justify-center text-center"
         >
           <h1
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-white leading-tight w-full max-w-full break-words"
             style={{
               fontFamily: "var(--font-heading)",
               textShadow: "3px 4px 0px rgba(0,0,0,0.1)",
               lineHeight: 1.1,
             }}
           >
-            <span className="whitespace-nowrap">
+            <span className="inline-block">
               Port
               <span
                 className="inline-block"
@@ -150,24 +150,24 @@ export default function HeroSection() {
             </span>
           </h1>
         </motion.div>
-
+ 
         {/* Name */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-2xl md:text-4xl font-bold text-white/95 mb-3"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-white/95 mb-3 w-full text-center px-4"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Khairul Azizi
         </motion.h2>
-
+ 
         {/* Subtitle / tagline */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="text-lg md:text-xl text-white/80 mb-8 px-4"
+          className="text-base sm:text-lg md:text-xl text-white/80 mb-8 px-4 w-full text-center"
           style={{
             fontFamily: "var(--font-handwritten)",
             maxWidth: "600px",
@@ -176,13 +176,13 @@ export default function HeroSection() {
         >
           Building clean, functional, and user-friendly web applications ✦
         </motion.p>
-
+ 
         {/* Year Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0, rotate: 15 }}
           animate={{ opacity: 1, scale: 1, rotate: 5 }}
           transition={{ duration: 0.5, delay: 0.9, type: "spring" }}
-          className="inline-block px-6 py-2 rounded-xl text-2xl md:text-3xl font-bold"
+          className="inline-block px-6 py-2 rounded-xl text-xl sm:text-2xl md:text-3xl font-bold select-none"
           style={{
             fontFamily: "var(--font-feature)",
             background: "#FF8A65",

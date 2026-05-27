@@ -5,39 +5,40 @@ import { useRef } from "react";
 
 const timelineData = [
   {
-    year: "2023",
+    year: "2022 - 2023",
     color: "#1595F3",
     events: [
-      "Learnt HTML, CSS & JavaScript",
-      "Built first static web projects",
-      "Explored database basics (MySQL)",
+      "Completed SPM at SMK Raja Mahadi",
+      "Won 3rd Place (Selangor State), Digital Storytelling Animation (DST) Competition 2022",
+      "Mastered digital design fundamentals, storyboarding, and vector illustration",
     ],
   },
   {
     year: "2024",
     color: "#FF8A65",
     events: [
-      "Began IT Diploma studies",
-      "Built Burung Hantu restaurant commerce system",
-      "Learned PHP & MySQL database design",
+      "Began Diploma in IT (Technology Digital) at Politeknik Ungku Omar",
+      "Maintained consecutive Dean's List academic standing (Semesters 1-3)",
+      "Learned fundamental programming in Java, Python, and Object-Oriented Principles",
     ],
   },
   {
     year: "2025",
     color: "#B9E769",
     events: [
-      "Launched BreedLink cat matching web app",
-      "Built Auto Finance Calculator portal",
-      "Mastered React, Tailwind CSS & Supabase",
+      "Earned multiple 4.00 GPA Dean Awards (Semester 4 & 5)",
+      "Co-created BreedLink pet breeding matchmaking app, winning 1st Place (Best Project) at ICE JTMK 2025",
+      "Won 2nd Place, Cybertech Arena: Nationwide Web Design Challenge 2025",
+      "Developed custom databases & authenticated APIs with React and Supabase",
     ],
   },
   {
     year: "2026",
     color: "#C3B1E1",
     events: [
-      "Created myEasyAssets management system",
-      "Focusing on full-stack React & Supabase apps",
-      "Preparing for a professional developer role 🎓",
+      "IT Support & Multimedia Internship at Wallmaster (Jan - May 2026)",
+      "Troubleshot corporate web portals, resolved user system configurations & edited content",
+      "Graduating in IT (Technology Digital) at Politeknik Ungku Omar 🎓",
     ],
   },
 ];

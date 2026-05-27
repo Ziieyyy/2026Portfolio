@@ -5,9 +5,9 @@ import { useRef } from "react";
 
 const contacts = [
   { label: "Email", value: "khairazizi@gmail.com", icon: "✉️", href: "mailto:khairazizi@gmail.com", color: "#FF8A65" },
-  { label: "WhatsApp", value: "+60 16-679 8900", icon: "💬", href: "https://wa.me/60166798900", color: "#B9E769" },
   { label: "LinkedIn", value: "linkedin.com/in/khairul-azizi", icon: "💼", href: "https://www.linkedin.com/in/khairul-azizi-512670391", color: "#1595F3" },
   { label: "Instagram", value: "@ziieyyy", icon: "📸", href: "https://www.instagram.com/ziieyyy?igsh=djFibDR5MmYzbnk5", color: "#FFB6C1" },
+  { label: "TikTok", value: "@kazzorigin", icon: "🎵", href: "https://www.tiktok.com/@kazzorigin", color: "#01F2EA" },
   { label: "GitHub", value: "github.com/Ziieyyy", icon: "🐙", href: "https://github.com/Ziieyyy", color: "#333" },
 ];
 

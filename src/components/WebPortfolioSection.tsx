@@ -15,6 +15,7 @@ const webProjects = [
     features: ["Profile creation", "Swipe matching", "Real-time chat", "Geolocation", "Vet verification"],
     color: "#1595F3",
     emoji: "🐱",
+    image: null,
     protoLink: "https://drive.google.com/drive/folders/159jCqEIkYN_TYHxIoY-FF3i3eVeHXCPa?usp=drive_link",
     pinned: true,
   },
@@ -29,6 +30,7 @@ const webProjects = [
     features: ["Real-time asset tracking", "Depreciation calculator", "Maintenance scheduling", "Secure authentication"],
     color: "#FF8A65",
     emoji: "💼",
+    image: null,
     protoLink: "https://myeassy-assets.vercel.app/",
   },
   {
@@ -42,6 +44,7 @@ const webProjects = [
     features: ["Browse vehicles", "Loan calculator", "Bank comparison", "Search & filter system", "Multi-language", "Dark mode"],
     color: "#B9E769",
     emoji: "🚗",
+    image: null,
     protoLink: "https://autofinancecalculator.vercel.app/",
   },
   {
@@ -55,6 +58,7 @@ const webProjects = [
     features: ["Menu browsing", "Online ordering", "Shopping cart", "User login & profiles"],
     color: "#C3B1E1",
     emoji: "🦉",
+    image: null,
     protoLink: "https://burunghantuwestern.wasmer.app/",
   },
 ];
@@ -135,12 +139,20 @@ export default function WebPortfolioSection() {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-6">
               {/* Project Image Area */}
               <div
-                className="aspect-video rounded-lg flex items-center justify-center relative overflow-hidden"
+                className="aspect-video rounded-lg flex items-center justify-center relative overflow-hidden border border-black/5"
                 style={{ background: `${project.color}15` }}
               >
-                <span className="text-6xl">{project.emoji}</span>
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                ) : (
+                  <span className="text-6xl">{project.emoji}</span>
+                )}
                 <span
-                  className="absolute top-2 right-2 sticker-badge text-white text-[10px]"
+                  className="absolute top-2 right-2 sticker-badge text-white text-[10px] z-10"
                   style={{ background: project.color, padding: "3px 10px" }}
                 >
                   {project.role.split(" ")[0]}
@@ -250,6 +262,16 @@ export default function WebPortfolioSection() {
                     {selectedProject.role}
                   </p>
                 </div>
+
+                {selectedProject.image && (
+                  <div className="aspect-video w-full rounded-lg overflow-hidden border border-black/5 relative flex items-center justify-center shadow-inner bg-white">
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <div className="p-4 rounded-lg" style={{ background: `${selectedProject.color}10` }}>
                   <h4 className="text-sm font-bold mb-1" style={{ fontFamily: "var(--font-section)" }}>
                     📋 Process
