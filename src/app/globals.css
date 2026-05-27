@@ -1,26 +1,739 @@
 @import "tailwindcss";
 
+/* ========================================
+   SCRAPBOOK PORTFOLIO — DESIGN SYSTEM
+   Notebook / Handcrafted / Playful
+   ======================================== */
+
+@theme {
+  /* Colors */
+  --color-cream: #F7F4E6;
+  --color-cream-dark: #EDE8D0;
+  --color-blue: #1595F3;
+  --color-blue-light: #5BB8F7;
+  --color-blue-dark: #0D7AD4;
+  --color-orange: #FF8A65;
+  --color-orange-light: #FFB199;
+  --color-green: #B9E769;
+  --color-green-light: #D4F0A0;
+  --color-softwhite: #FFFDF8;
+  --color-dark: #333333;
+  --color-dark-light: #555555;
+  --color-tape: rgba(255, 248, 220, 0.75);
+  --color-tape-green: rgba(185, 231, 105, 0.4);
+  --color-tape-blue: rgba(21, 149, 243, 0.25);
+  --color-tape-orange: rgba(255, 138, 101, 0.3);
+  --color-grid-line: rgba(173, 216, 230, 0.35);
+  --color-paper-shadow: rgba(0, 0, 0, 0.06);
+  --color-pink: #FFB6C1;
+  --color-yellow: #FFE066;
+  --color-lavender: #C3B1E1;
+
+  /* Fonts */
+  --font-heading: var(--font-baloo2), 'Baloo 2', cursive;
+  --font-section: var(--font-fredoka), 'Fredoka', sans-serif;
+  --font-feature: var(--font-lilita), 'Lilita One', cursive;
+  --font-body: var(--font-poppins), 'Poppins', sans-serif;
+  --font-caption: var(--font-nunito), 'Nunito', sans-serif;
+  --font-sticker: var(--font-patrickhand), 'Patrick Hand', cursive;
+  --font-handwritten: var(--font-schoolbell), 'Schoolbell', cursive;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F7F4E6;
+  --foreground: #333333;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  position: relative;
+  zoom: 1.35; /* Scales the entire page layout globally by 135% */
+}
+
+/* ========================================
+   NOTEBOOK GRID BACKGROUND
+   ======================================== */
+
+.notebook-grid {
+  background-image:
+    linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.notebook-grid-large {
+  background-image:
+    linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ========================================
+   GRAIN / NOISE TEXTURE OVERLAY
+   ======================================== */
+
+.grain-overlay::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ========================================
+   WASHI TAPE EFFECT
+   ======================================== */
+
+.washi-tape {
+  position: absolute;
+  width: 120px;
+  height: 28px;
+  background: var(--color-tape);
+  opacity: 0.85;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.washi-tape-green {
+  background: var(--color-tape-green);
+}
+
+.washi-tape-blue {
+  background: var(--color-tape-blue);
+}
+
+.washi-tape-orange {
+  background: var(--color-tape-orange);
+}
+
+/* ========================================
+   PAPER CARD STYLES
+   ======================================== */
+
+.paper-card {
+  background: var(--color-softwhite);
+  border-radius: 12px;
+  box-shadow:
+    2px 3px 8px var(--color-paper-shadow),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.paper-card:hover {
+  transform: translateY(-4px) rotate(0.5deg);
+  box-shadow:
+    4px 6px 20px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.paper-card-flat {
+  background: var(--color-softwhite);
+  border-radius: 8px;
+  box-shadow: 2px 3px 8px var(--color-paper-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* ========================================
+   STICKER BADGE
+   ======================================== */
+
+.sticker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-family: var(--font-sticker);
+  font-size: 14px;
+  font-weight: 400;
+  transition: transform 0.3s ease;
+  cursor: default;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.sticker-badge:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.sticker-blue {
+  background: var(--color-blue);
+  color: white;
+}
+
+.sticker-orange {
+  background: var(--color-orange);
+  color: white;
+}
+
+.sticker-green {
+  background: var(--color-green);
+  color: var(--color-dark);
+}
+
+.sticker-pink {
+  background: var(--color-pink);
+  color: var(--color-dark);
+}
+
+.sticker-yellow {
+  background: var(--color-yellow);
+  color: var(--color-dark);
+}
+
+.sticker-lavender {
+  background: var(--color-lavender);
+  color: var(--color-dark);
+}
+
+/* ========================================
+   PAPER CLIP
+   ======================================== */
+
+.paper-clip {
+  position: absolute;
+  width: 24px;
+  height: 52px;
+  border: 3px solid #C0C0C0;
+  border-radius: 12px 12px 0 0;
+  border-bottom: none;
+  top: -12px;
+  z-index: 15;
+}
+
+.paper-clip::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 3px;
+  width: 12px;
+  height: 30px;
+  border: 3px solid #C0C0C0;
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+}
+
+/* ========================================
+   TORN PAPER EDGE
+   ======================================== */
+
+.torn-edge-bottom {
+  position: relative;
+}
+
+.torn-edge-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: var(--color-cream);
+  clip-path: polygon(
+    0% 0%, 3% 60%, 6% 20%, 9% 70%, 12% 10%, 15% 50%, 18% 5%,
+    21% 65%, 24% 15%, 27% 55%, 30% 0%, 33% 60%, 36% 25%, 39% 70%,
+    42% 10%, 45% 55%, 48% 0%, 51% 65%, 54% 20%, 57% 60%, 60% 5%,
+    63% 50%, 66% 15%, 69% 65%, 72% 0%, 75% 55%, 78% 20%, 81% 70%,
+    84% 5%, 87% 60%, 90% 15%, 93% 55%, 96% 10%, 100% 0%, 100% 100%, 0% 100%
+  );
+  z-index: 5;
+}
+
+.torn-edge-top {
+  position: relative;
+}
+
+.torn-edge-top::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: var(--color-blue);
+  clip-path: polygon(
+    0% 100%, 3% 40%, 6% 80%, 9% 30%, 12% 90%, 15% 50%, 18% 95%,
+    21% 35%, 24% 85%, 27% 45%, 30% 100%, 33% 40%, 36% 75%, 39% 30%,
+    42% 90%, 45% 45%, 48% 100%, 51% 35%, 54% 80%, 57% 40%, 60% 95%,
+    63% 50%, 66% 85%, 69% 35%, 72% 100%, 75% 45%, 78% 80%, 81% 30%,
+    84% 95%, 87% 40%, 90% 85%, 93% 45%, 96% 90%, 100% 100%, 100% 0%, 0% 0%
+  );
+  z-index: 5;
+}
+
+/* ========================================
+   BUNTING / PENNANT BANNER
+   ======================================== */
+
+.bunting {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+}
+
+.bunting-flag {
+  width: 28px;
+  height: 36px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  display: inline-block;
+  margin: 0 3px;
+  transform-origin: top center;
+  animation: buntingSwing 3s ease-in-out infinite;
+}
+
+.bunting-flag:nth-child(even) {
+  animation-delay: 0.5s;
+}
+
+@keyframes buntingSwing {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* ========================================
+   PROGRESS BAR (Skill bars)
+   ======================================== */
+
+.skill-bar-container {
+  background: #E8E4D8;
+  border-radius: 8px;
+  height: 18px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--color-orange), var(--color-orange-light));
+  transition: width 1.5s ease-out;
+  position: relative;
+}
+
+.skill-bar-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  border-radius: 8px;
+}
+
+/* ========================================
+   FLOATING ANIMATION
+   ======================================== */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-2deg);
+  }
+}
+
+.float-animation {
+  animation: float 5s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
+}
+
+/* ========================================
+   DOODLE DECORATIONS
+   ======================================== */
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+/* ========================================
+   POLAROID CARD
+   ======================================== */
+
+.polaroid-card {
+  background: white;
+  padding: 10px 10px 40px 10px;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.polaroid-card:hover {
+  transform: scale(1.03) rotate(-1deg);
+  box-shadow: 4px 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   SECTION STYLES
+   ======================================== */
+
+.section-blue {
+  background: linear-gradient(180deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
+  color: white;
+}
+
+.section-cream {
+  background: var(--color-cream);
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-blue-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-blue);
+}
+
+/* ========================================
+   MODAL OVERLAY
+   ======================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--color-softwhite);
+  border-radius: 16px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 32px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   TIMELINE STYLES
+   ======================================== */
+
+.timeline-line {
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-blue), var(--color-orange), var(--color-green), var(--color-blue));
+  border-radius: 2px;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ========================================
+   PENCIL CURSOR
+   ======================================== */
+
+.pencil-cursor {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF8A65' d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") 0 24, auto;
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+
+.btn-scrapbook {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-family: var(--font-sticker);
+  font-size: 16px;
+  border: 2px dashed;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-scrapbook:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.btn-blue {
+  background: var(--color-blue);
+  color: white;
+  border-color: var(--color-blue-dark);
+}
+
+.btn-orange {
+  background: var(--color-orange);
+  color: white;
+  border-color: #E07550;
+}
+
+.btn-green {
+  background: var(--color-green);
+  color: var(--color-dark);
+  border-color: #9DD054;
+}
+
+/* ========================================
+   RESPONSIVE HELPERS
+   ======================================== */
+
+@media (max-width: 1024px) {
+  body {
+    zoom: 1.0 !important; /* Reset layout scaling on mobile and tablet for perfect responsive fit */
+  }
+}
+
+@media (max-width: 768px) {
+  .bunting-flag {
+    width: 20px;
+    height: 28px;
+  }
+
+  .washi-tape {
+    width: 80px;
+    height: 22px;
+  }
+
+  .paper-clip {
+    display: none;
+  }
+}
+
+/* ========================================
+   NAV TAB STYLES
+   ======================================== */
+
+.nav-tab {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  font-family: var(--font-sticker);
+  font-size: 14px;
+  border-radius: 12px 12px 0 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--color-dark);
+  background: var(--color-cream-dark);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: none;
+  position: relative;
+}
+
+.nav-tab:hover,
+.nav-tab.active {
+  background: var(--color-softwhite);
+  transform: translateY(-2px);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ========================================
+   ENTRANCE ANIMATIONS
+   ======================================== */
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  70% {
+    transform: scale(1.1) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-pop-in {
+  animation: popIn 0.5s ease-out forwards;
+}
+
+/* ========================================
+   HOVER TAPE TILT
+   ======================================== */
+
+.tape-tilt {
+  transition: transform 0.3s ease;
+}
+
+.tape-tilt:hover {
+  transform: rotate(-2deg) translateY(-3px);
+}
+
+/* ========================================
+   HANDWRITTEN UNDERLINE
+   ======================================== */
+
+.hand-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hand-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  height: 8px;
+  background: var(--color-orange);
+  opacity: 0.3;
+  border-radius: 4px;
+  transform: rotate(-0.5deg);
 }
