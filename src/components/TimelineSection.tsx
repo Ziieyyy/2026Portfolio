@@ -144,72 +144,54 @@ export default function TimelineSection() {
       </div>
 
       {/* Mobile/Tablet Vertical Timeline */}
-      <div className="block md:hidden max-w-2xl mx-auto relative px-4" data-aos="fade-up">
-        {/* Vertical line */}
-        <div
-          className="absolute left-6 top-2 bottom-2 w-1 rounded-full"
-          style={{
-            background: "linear-gradient(180deg, #1595F3, #FF8A65, #B9E769, #C3B1E1)",
-          }}
-        />
-
-        <div className="space-y-10">
+      <div className="block md:hidden max-w-xl mx-auto relative px-4" data-aos="fade-up">
+        <div className="space-y-12">
           {timelineData.map((item, i) => (
             <motion.div
               key={item.year}
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="flex items-start gap-6 relative pl-10"
+              className="flex flex-col items-center relative"
             >
-              {/* Dot */}
+              {/* Year Badge */}
               <div
-                className="w-5 h-5 rounded-full border-[3px] border-white z-10 absolute left-[14px] top-2.5"
+                className="inline-block text-base sm:text-lg font-bold text-white px-5 py-1.5 rounded-full z-10 relative mb-4"
                 style={{
                   background: item.color,
-                  boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+                  fontFamily: "var(--font-feature)",
+                  boxShadow: "2px 3px 0px rgba(0,0,0,0.1)",
                 }}
-              />
+              >
+                {item.year}
+              </div>
 
               {/* Content Card */}
-              <div className="flex-1 space-y-4">
-                {/* Year Badge */}
+              <div
+                className="paper-card p-6 relative w-full flex flex-col items-center text-center"
+                style={{ transform: `rotate(${i % 2 === 0 ? -1 : 1}deg)` }}
+              >
+                {/* Mini tape in center */}
                 <div
-                  className="inline-block text-base sm:text-lg font-bold text-white px-4 py-1.5 rounded-full z-10 relative"
+                  className="washi-tape"
                   style={{
-                    background: item.color,
-                    fontFamily: "var(--font-feature)",
-                    boxShadow: "1px 2px 0px rgba(0,0,0,0.1)",
+                    top: "-8px",
+                    left: "50%",
+                    transform: `translateX(-50%) rotate(${i % 2 === 0 ? -3 : 3}deg)`,
+                    width: "80px",
+                    height: "20px",
+                    background: `${item.color}30`,
                   }}
-                >
-                  {item.year}
-                </div>
-
-                <div
-                  className="paper-card p-5 sm:p-7 relative w-full"
-                  style={{ transform: `rotate(${i % 2 === 0 ? -0.5 : 0.5}deg)` }}
-                >
-                  {/* Mini tape */}
-                  <div
-                    className="washi-tape"
-                    style={{
-                      top: "-8px",
-                      left: "30px",
-                      transform: `rotate(${i % 2 === 0 ? -4 : 3}deg)`,
-                      width: "80px",
-                      height: "20px",
-                      background: `${item.color}30`,
-                    }}
-                  />
-                  <ul className="space-y-3 text-sm sm:text-base text-gray-700" style={{ fontFamily: "var(--font-body)" }}>
-                    {item.events.map((event, j) => (
-                      <li key={j} className="flex items-start gap-2.5">
-                        <span style={{ color: item.color, fontSize: "1.2em" }}>•</span>
-                        {event}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                />
+                
+                {/* Centered Bullet Points */}
+                <ul className="space-y-3 text-sm sm:text-base text-gray-700 text-center list-none w-full" style={{ fontFamily: "var(--font-body)" }}>
+                  {item.events.map((event, j) => (
+                    <li key={j} className="leading-relaxed">
+                      • {event}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}
